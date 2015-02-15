@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Intel Galileo Tests (kasperi2)</title>
+		<meta name='MobileOptimized' content='width'/>
+    	<meta name='HandheldFriendly' content='true' />
+    	<meta name='viewport' content='width=device-width initial-scale=1.0 user-scalable=no'/>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script src="socket.io/socket.io.js"></script>
+		<script>
+	    $.mobile.changeGlobalTheme = function(theme) {
+			// These themes will be cleared, add more
+			// swatch letters as needed.
+			var themes = " a b c d";
+
+			// Updates the theme for all elements that match the
+			// CSS selector with the specified theme class.
+			function setTheme(cssSelector, themeClass, theme)
+			{
+				$(cssSelector)
+					.removeClass(themes.split(" ").join(" " + themeClass + "-"))
+					.addClass(themeClass + "-" + theme)
+					.attr("data-theme", theme);
+			}
+
+			// Add more selectors/theme classes as needed.
+			setTheme("[data-role='page']", "ui-page-theme", theme);
+		};
+
+		var socket = io();
+	    socket.on('theme note', function (theme) {
+	        $.mobile.changeGlobalTheme(theme);
+	    });
+
+	    $(document).on('submit', 'form', function(e){
+	    	console.log("hej");
+	    	e.preventDefault();
+	        socket.emit('morse code', $('#code').val());
+	        $('#code').val('');
+	    });
+		</script>
+	</head>
+	<body>
+	    <div data-role="page" id="page-home" data-theme="a">
+	        <div data-role="header" data-position="fixed">
+	            <h1>Info490 Tests</h1>
+	        </div>
+	        <div data-role="content">
+	         	<h1>Tests of the Intel Galileo</h1>
+	         	<p>by kasperi2@illinois.edu</p>
+	         	<p>Input "." or "-" to send morse code to the LED at pin 3</p>
+				<form>
+					<input id="code" type="text" name="morse" />
+					<button type="submit">Send morse</button>
+				</form>
+			</div>
+    	</div>
+	</body>
+</html>
+
