@@ -25,6 +25,6 @@ npm install
 3. Run
 ```bash
 node app.js
-``
+```
 
 Go to 192.168.10.104:1337 (change the IP to your boards no).
