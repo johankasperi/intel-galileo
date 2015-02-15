@@ -9,7 +9,7 @@ Blink LED: https://communities.intel.com/docs/DOC-22427 (connect to pin 3)
 Photo resistor: https://communities.intel.com/docs/DOC-22438 (connect to analog input 1, AI 1)
 
 # Dependencies
-Node.js, socket.io
+Node.js, socket.io, mraa
 
 # Install
 1. Clone the repo
@@ -26,3 +26,5 @@ npm install
 ```bash
 node app.js
 ``
+
+Go to 192.168.10.104:1337 (change the IP to your boards no).
