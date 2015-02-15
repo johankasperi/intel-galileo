@@ -1,6 +1,5 @@
 # intel-galileo
 Some demos of the Intel Galileo for the course INFO490 at UIUC.
-<<<<<<< HEAD
 
 # Board connections
 The board connections used in this demo are a combination of the connections below.
@@ -26,4 +25,4 @@ npm install
 3. Run
 ```bash
 node app.js
-```
+``
