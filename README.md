@@ -14,15 +14,13 @@ Node.js, socket.io
 
 # Install
 1. Clone the repo
-´´´bash
+```bash
 git clone https://github.com/johankasperi/intel-galileo.git
 
 2. Get dependencies
-´´´bash
+```bash
 npm install
 
 3. Run
-´´´bash
+```bash
 node app.js
-=======
->>>>>>> 7a453187e0882a5fcaffe3259474393966639ebb
